@@ -9,8 +9,8 @@ function fadeIn(selector) {
 
 	const fadeTransitions = {
 		s: 'opacity 400ms ease-in-out 200ms, transform 400ms ease-in-out 200ms',
-		m: 'opacity 600ms ease-in-out 200ms, transform 600ms ease-in-out 300ms',
-		l: 'opacity 800ms ease-in-out 200ms, transform 800ms ease-in-out 400ms',
+		m: 'opacity 600ms ease-in-out 300ms, transform 600ms ease-in-out 300ms',
+		l: 'opacity 800ms ease-in-out 400ms, transform 800ms ease-in-out 400ms',
 	};
 
 	elements.forEach((element) => {
