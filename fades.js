@@ -20,8 +20,6 @@ function fadeIn(selector) {
 		element.style.transition = fadeTransitions[fadeType];
 	});
 
-	console.log('js cargado');
-
 	const observer = new IntersectionObserver((entries, observer) => {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
