@@ -1,22 +1,24 @@
 function fadeIn(selector) {
 	const elements = document.querySelectorAll(`[${selector}]`);
 
-	const fadeTransforms = {
-		s: 'translateY(15px)',
-		m: 'translateY(30px)',
-		l: 'translateY(60px)',
-	};
-
 	const fadeTransitions = {
 		s: 'opacity 400ms ease-in-out 200ms, transform 400ms ease-in-out 200ms',
 		m: 'opacity 600ms ease-in-out 300ms, transform 600ms ease-in-out 300ms',
 		l: 'opacity 800ms ease-in-out 400ms, transform 800ms ease-in-out 400ms',
 	};
 
+	const fadeDirections = {
+		top: 'translateY(-30px)',
+		bottom: 'translateY(30px)',
+		left: 'translateX(-30px)',
+		right: 'translateX(30px)',
+	};
+
 	elements.forEach((element) => {
 		const fadeType = element.getAttribute(selector);
+		const fadeDirection = element.getAttribute('fds-direction');
 		element.style.opacity = 0;
-		element.style.transform = fadeTransforms[fadeType];
+		element.style.transform = fadeDirections[fadeDirection];
 		element.style.transition = fadeTransitions[fadeType];
 	});
 
@@ -36,10 +38,10 @@ function fadeIn(selector) {
 
 	function fadeInElement(element) {
 		element.style.opacity = 1;
-		element.style.transform = 'translateY(0)';
+		element.style.transform = 'translate(0)';
 	}
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-	fadeIn('example-fade');
+	fadeIn('fds-fade');
 });
