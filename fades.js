@@ -7,12 +7,17 @@ function fadeIn(selector) {
 		l: 'translateY(60px)',
 	};
 
+	const fadeTransitions = {
+		s: 'opacity 400ms ease-in-out 200ms, transform 400ms ease-in-out 200ms',
+		m: 'opacity 600ms ease-in-out 200ms, transform 600ms ease-in-out 200ms',
+		l: 'opacity 800ms ease-in-out 200ms, transform 800ms ease-in-out 200ms',
+	};
+
 	elements.forEach((element) => {
 		const fadeType = element.getAttribute(selector);
 		element.style.opacity = 0;
 		element.style.transform = fadeTransforms[fadeType];
-		element.style.transition =
-			'opacity 800ms ease-in-out 200ms, transform 800ms ease-in-out 200ms';
+		element.style.transition = fadeTransitions[fadeType];
 	});
 
 	console.log('js cargado');
