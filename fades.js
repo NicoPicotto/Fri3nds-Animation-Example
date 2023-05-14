@@ -17,6 +17,8 @@ function fadeIn(selector) {
 			'opacity 800ms ease-in-out 200ms, transform 800ms ease-in-out 200ms';
 	});
 
+	console.log('Puto');
+
 	const observer = new IntersectionObserver((entries, observer) => {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
