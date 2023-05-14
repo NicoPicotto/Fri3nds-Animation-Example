@@ -1,23 +1,21 @@
 function fadeIn(selector) {
 	const elements = document.querySelectorAll(`[${selector}]`);
 
+	const fadeTransforms = {
+		s: 'translateY(15px)',
+		m: 'translateY(30px)',
+		l: 'translateY(60px)',
+	};
+
 	elements.forEach((element) => {
 		const fadeType = element.getAttribute(selector);
 		element.style.opacity = 0;
-		if (fadeType === 's') {
-			element.style.transform = 'translateY(15px)';
-		}
-		if (fadeType === 'm') {
-			element.style.transform = 'translateY(30px)';
-		}
-		if (fadeType === 'l') {
-			element.style.transform = 'translateY(60px)';
-		}
+		element.style.transform = fadeTransforms[fadeType];
 		element.style.transition =
 			'opacity 800ms ease-in-out 200ms, transform 800ms ease-in-out 200ms';
 	});
 
-	console.log('Puto');
+	console.log('js cargado');
 
 	const observer = new IntersectionObserver((entries, observer) => {
 		entries.forEach((entry) => {
