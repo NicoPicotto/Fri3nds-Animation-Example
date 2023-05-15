@@ -16,30 +16,31 @@ function fadeIn(selector) {
 		right: 'translateX(30px)',
 	};
 
-	//Loop general por los elementos que contienen el atributo fds-fade
-	elements.forEach((element) => {
-		const fadeDirection = element.getAttribute('fds-direction');
-		element.style.opacity = 0;
-		element.style.transform = fadeDirections[fadeDirection];
-	});
-
 	//GSAP trigger y observer
 	gsap.registerPlugin(ScrollTrigger);
 
 	elements.forEach((element) => {
 		const fadeType = element.getAttribute(selector);
-		gsap.to(element, {
-			opacity: 1,
-			x: 0,
-			y: 0,
-			duration: fadeTransitions[fadeType],
-			delay: 0.2,
-			ease: 'power2.out',
-			scrollTrigger: {
-				trigger: element,
-				start: 'top 80%',
+		const fadeDirection = element.getAttribute('fds-direction');
+		gsap.fromTo(
+			element,
+			{
+				opacity: 0,
+				transform: fadeDirections[fadeDirection],
 			},
-		});
+			{
+				opacity: 1,
+				x: 0,
+				y: 0,
+				duration: fadeTransitions[fadeType],
+				delay: 0.2,
+				ease: 'power2.out',
+				scrollTrigger: {
+					trigger: element,
+					start: 'top 80%',
+				},
+			}
+		);
 	});
 }
 
