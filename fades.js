@@ -1,12 +1,14 @@
 function fadeIn(selector) {
 	const elements = document.querySelectorAll(`[${selector}]`);
 
+	//Objeto con los valores que toma fds-fade
 	const fadeTransitions = {
 		s: 'opacity 400ms ease-in-out 200ms, transform 400ms ease-in-out 200ms',
 		m: 'opacity 600ms ease-in-out 300ms, transform 600ms ease-in-out 300ms',
 		l: 'opacity 800ms ease-in-out 400ms, transform 800ms ease-in-out 400ms',
 	};
 
+	//Objeto con los valores que toma fds-direction
 	const fadeDirections = {
 		top: 'translateY(-30px)',
 		bottom: 'translateY(30px)',
@@ -14,6 +16,7 @@ function fadeIn(selector) {
 		right: 'translateX(30px)',
 	};
 
+	//Loop general por los elementos que contienen el atributo fds-fade
 	elements.forEach((element) => {
 		const fadeType = element.getAttribute(selector);
 		const fadeDirection = element.getAttribute('fds-direction');
@@ -22,6 +25,7 @@ function fadeIn(selector) {
 		element.style.transition = fadeTransitions[fadeType];
 	});
 
+	//Observer para ver cuándo entra en viewport y retornar sus valores originales
 	const observer = new IntersectionObserver((entries, observer) => {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
@@ -42,6 +46,7 @@ function fadeIn(selector) {
 	}
 }
 
+//Listener
 document.addEventListener('DOMContentLoaded', function () {
 	fadeIn('fds-fade');
 });
