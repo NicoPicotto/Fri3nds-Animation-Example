@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	//Llamada a la animación luego de que se carguen los scripts de GSAP
 	gsapTrigger.onload = function () {
 		fadeIn('fds-fade');
+		slideIn('fds-slide');
 	};
 });
 
@@ -62,5 +63,43 @@ function fadeIn(selector) {
 				},
 			}
 		);
+	});
+}
+
+//Animación Slide-In
+function slideIn(selector) {
+	const elements = document.querySelectorAll(`[${selector}]`);
+
+	//Objeto con los valores que toma fds-fade
+	const slideTransitions = {
+		s: 0.2,
+		m: 0.4,
+		l: 0.8,
+	};
+
+	//Objeto con los valores que toma fds-direction
+	const slideDirections = {
+		top: 'translateY(-15px)',
+		right: 'translateX(15px)',
+	};
+
+	elements.forEach((element) => {
+		const slideType = element.getAttribute(selector);
+		const slideDirection = element.getAttribute('fds-direction');
+
+		element.addEventListener('mouseenter', () => {
+			gsap.to(element, {
+				duration: slideTransitions[slideType],
+				transform: slideDirections[slideDirection],
+			});
+		});
+
+		element.addEventListener('mouseleave', () => {
+			gsap.to(element, {
+				duration: slideTransitions[slideType],
+				x: 0,
+				y: 0,
+			});
+		});
 	});
 }

@@ -17,7 +17,7 @@ Para implementar las animaciones se deben insertar los atributos en el elemento 
 
 [![custom-attributes.jpg](https://i.postimg.cc/q7BZ0hwQ/custom-attributes.jpg)](https://postimg.cc/873bmCqr)
 
-### Fade
+### Fade In
 Se debe agregar al elemento html el siguiente atributo `fds-fade` con el valor que corresponda entre `s`, `m`, `l`.
 
 ```bash
@@ -35,6 +35,21 @@ fds-direction = left // Para que la animación venga de la izquierda
 fds-direction = right // Para que la animación venga de la derecha
 ```
 
+### Slide
+Se debe agregar al elemento html el siguiente atributo `fds-fade` con el valor que corresponda entre `s`, `m`, `l`.
+
+```bash
+fds-fade = s // Para una animación rápida
+fds-fade = m // Para una animación media
+fds-fade = l // Para una animación lenta
+```
+
+Adicionalmente se puede agregar la dirección agregando al elemento html el atributo `fds-direction` con el valor que corresponda entre `top`, `bottom`, `left`, `right`.
+
+```bash
+fds-direction = top // Para que el elemento se mueva hacia arriba
+fds-direction = right // Para que el elemento se mueva hacia la derecha
+```
 
 ## Authors
 
