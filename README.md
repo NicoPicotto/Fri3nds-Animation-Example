@@ -41,12 +41,12 @@ fds-direction = right // Para que la animación venga de la derecha
 
 [![slide.gif](https://i.postimg.cc/zfxBrBKr/slide.gif)](https://postimg.cc/v16M7G0q)
 
-Se debe agregar al elemento html el siguiente atributo `fds-fade` con el valor que corresponda entre `s`, `m`, `l`.
+Se debe agregar al elemento html el siguiente atributo `fds-slide` con el valor que corresponda entre `s`, `m`, `l`.
 
 ```bash
-fds-fade = s // Para una animación rápida
-fds-fade = m // Para una animación media
-fds-fade = l // Para una animación lenta
+fds-slide = s // Para una animación rápida
+fds-slide = m // Para una animación media
+fds-slide = l // Para una animación lenta
 ```
 
 Adicionalmente se puede agregar la dirección agregando al elemento html el atributo `fds-direction` con el valor que corresponda entre `top`, `bottom`, `left`, `right`.
