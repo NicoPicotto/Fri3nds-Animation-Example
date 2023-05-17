@@ -57,14 +57,10 @@ fds-direction = right // Para que la animación ocurra hacia la derecha
 También tenemos la posibilidad de generar el efecto en otro elemento dentro de este, añadiendo el atributo `fds-slideTarget` donde queremos que ocurra.
 
 ```bash
-			<div
-				class="container"
-				fds-direction="top"
-				fds-slide="m"
-			>
-				<p>Text Button</p>
-				<div fds-slideTarget> -> </div>
-			</div>
+<div class="container" fds-slide="m" fds-direction="top">
+    <p>Text Button</p>
+    <div fds-slideTarget> -> </div>
+</div>
 ```
 
 ## Authors
