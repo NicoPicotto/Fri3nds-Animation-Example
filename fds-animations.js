@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	//Llamada a la animación luego de que se carguen los scripts de GSAP
 	gsapTrigger.onload = function () {
 		fadeIn('fds-fade');
-		slideIn('fds-slide');
+		slideIn('fds-slide', 'fds-slideTarget');
 	};
 });
 
@@ -67,39 +67,42 @@ function fadeIn(selector) {
 }
 
 //Animación Slide-In
-function slideIn(selector) {
-	const elements = document.querySelectorAll(`[${selector}]`);
+function slideIn(containerSelector, elementSelector) {
+	const containers = document.querySelectorAll(`[${containerSelector}]`);
 
-	//Objeto con los valores que toma fds-fade
+	// Objeto con los valores que toma fds-fade
 	const slideTransitions = {
 		s: 0.2,
 		m: 0.4,
 		l: 0.8,
 	};
 
-	//Objeto con los valores que toma fds-direction
+	// Objeto con los valores que toma fds-direction
 	const slideDirections = {
 		top: 'translateY(-15px)',
 		right: 'translateX(15px)',
 	};
 
-	elements.forEach((element) => {
-		const slideType = element.getAttribute(selector);
-		const slideDirection = element.getAttribute('fds-direction');
+	containers.forEach((container) => {
+		const slideType = container.getAttribute(containerSelector);
+		const slideDirection = container.getAttribute('fds-direction');
+		const element = container.querySelector(`[${elementSelector}]`);
 
-		element.addEventListener('mouseenter', () => {
-			gsap.to(element, {
-				duration: slideTransitions[slideType],
-				transform: slideDirections[slideDirection],
+		if (element) {
+			container.addEventListener('mouseenter', () => {
+				gsap.to(element, {
+					duration: slideTransitions[slideType],
+					transform: slideDirections[slideDirection],
+				});
 			});
-		});
 
-		element.addEventListener('mouseleave', () => {
-			gsap.to(element, {
-				duration: slideTransitions[slideType],
-				x: 0,
-				y: 0,
+			container.addEventListener('mouseleave', () => {
+				gsap.to(element, {
+					duration: slideTransitions[slideType],
+					x: 0,
+					y: 0,
+				});
 			});
-		});
+		}
 	});
 }
