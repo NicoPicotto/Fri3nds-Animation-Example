@@ -79,10 +79,10 @@ function slideIn(containerSelector, elementSelector) {
 
 	// Objeto con los valores que toma fds-direction
 	const slideDirections = {
-		top: 'translateY(-15px)',
-		bottom: 'translateY(15px)',
-		left: 'translateX(-15px)',
-		right: 'translateX(15px)',
+		top: 'translateY(-10px)',
+		bottom: 'translateY(10px)',
+		left: 'translateX(-10px)',
+		right: 'translateX(10px)',
 	};
 
 	containers.forEach((container) => {

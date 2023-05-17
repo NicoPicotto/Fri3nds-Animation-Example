@@ -18,6 +18,8 @@ Para implementar las animaciones se deben insertar los atributos en el elemento 
 
 ### Fade In
 
+[![fade.gif](https://i.postimg.cc/vmYBk91h/fade.gif)](https://postimg.cc/JsFMBs5H)
+
 Se debe agregar al elemento html el siguiente atributo `fds-fade` con el valor que corresponda entre `s`, `m`, `l`.
 
 ```bash
@@ -36,6 +38,8 @@ fds-direction = right // Para que la animación venga de la derecha
 ```
 
 ### Slide
+
+[![slide.gif](https://i.postimg.cc/zfxBrBKr/slide.gif)](https://postimg.cc/v16M7G0q)
 
 Se debe agregar al elemento html el siguiente atributo `fds-fade` con el valor que corresponda entre `s`, `m`, `l`.
 
