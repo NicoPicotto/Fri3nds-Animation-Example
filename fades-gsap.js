@@ -1,12 +1,28 @@
-//Listener
+//Listener + Creación de scripts de GSAP
 document.addEventListener('DOMContentLoaded', function () {
-	fadeIn('fds-fade');
+	// Creando script de GSAP en body
+	var gsapScript = document.createElement('script');
+	gsapScript.src =
+		'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js';
+	document.body.appendChild(gsapScript);
+
+	// Creando script de ScrollTrigger en body
+	var gsapTrigger = document.createElement('script');
+	gsapTrigger.src =
+		'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js';
+	document.body.appendChild(gsapTrigger);
+
+	//Llamada a la animación luego de que se carguen los scripts de GSAP
+	gsapTrigger.onload = function () {
+		fadeIn('fds-fade');
+	};
 });
 
+//Animación Fade-In
 function fadeIn(selector) {
 	const elements = document.querySelectorAll(`[${selector}]`);
 
-	//Objeto con los valores que toma fds-fade (utilizados en GSAP)
+	//Objeto con los valores que toma fds-fade
 	const fadeTransitions = {
 		s: 0.2,
 		m: 0.4,
@@ -48,19 +64,3 @@ function fadeIn(selector) {
 		);
 	});
 }
-
-//Creando script de GSAP en body
-var gsapSript = document.createElement('script');
-gsapSript.setAttribute(
-	'src',
-	'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js'
-);
-document.body.appendChild(gsapSript);
-
-//Creando script de ScrollTrigger en body
-var gsapTrigger = document.createElement('script');
-gsapTrigger.setAttribute(
-	'src',
-	'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js'
-);
-document.body.appendChild(gsapTrigger);
