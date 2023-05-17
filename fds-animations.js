@@ -107,24 +107,22 @@ function slideIn(containerSelector, elementSelector) {
 				});
 			});
 
-			//Si el atributo "fds-target" NO existe, el efecto ocurre donde existe el atributo "fds-slide"
+		//Si el atributo "fds-target" NO existe, el efecto ocurre donde existe el atributo "fds-slide"
 		} else {
-			if (container) {
-				container.addEventListener('mouseenter', () => {
-					gsap.to(container, {
-						duration: slideTransitions[slideType],
-						transform: slideDirections[slideDirection],
-					});
+			container.addEventListener('mouseenter', () => {
+				gsap.to(container, {
+					duration: slideTransitions[slideType],
+					transform: slideDirections[slideDirection],
 				});
+			});
 
-				container.addEventListener('mouseleave', () => {
-					gsap.to(container, {
-						duration: slideTransitions[slideType],
-						x: 0,
-						y: 0,
-					});
+			container.addEventListener('mouseleave', () => {
+				gsap.to(container, {
+					duration: slideTransitions[slideType],
+					x: 0,
+					y: 0,
 				});
-			}
+			});
 		}
 	});
 }
