@@ -80,6 +80,8 @@ function slideIn(containerSelector, elementSelector) {
 	// Objeto con los valores que toma fds-direction
 	const slideDirections = {
 		top: 'translateY(-15px)',
+		bottom: 'translateY(15px)',
+		left: 'translateX(-15px)',
 		right: 'translateX(15px)',
 	};
 
@@ -88,6 +90,7 @@ function slideIn(containerSelector, elementSelector) {
 		const slideDirection = container.getAttribute('fds-direction');
 		const element = container.querySelector(`[${elementSelector}]`);
 
+		//Si el atributo "fds-target" existe, el efecto ocurre donde está aplicado
 		if (element) {
 			container.addEventListener('mouseenter', () => {
 				gsap.to(element, {
@@ -103,6 +106,25 @@ function slideIn(containerSelector, elementSelector) {
 					y: 0,
 				});
 			});
+
+			//Si el atributo "fds-target" NO existe, el efecto ocurre donde existe el atributo "fds-slide"
+		} else {
+			if (container) {
+				container.addEventListener('mouseenter', () => {
+					gsap.to(container, {
+						duration: slideTransitions[slideType],
+						transform: slideDirections[slideDirection],
+					});
+				});
+
+				container.addEventListener('mouseleave', () => {
+					gsap.to(container, {
+						duration: slideTransitions[slideType],
+						x: 0,
+						y: 0,
+					});
+				});
+			}
 		}
 	});
 }
