@@ -1,3 +1,8 @@
+//Listener
+document.addEventListener('DOMContentLoaded', function () {
+	fadeIn('fds-fade');
+});
+
 function fadeIn(selector) {
 	const elements = document.querySelectorAll(`[${selector}]`);
 
@@ -44,7 +49,18 @@ function fadeIn(selector) {
 	});
 }
 
-//Listener
-document.addEventListener('DOMContentLoaded', function () {
-	fadeIn('fds-fade');
-});
+//Creando script de GSAP en body
+var gsapSript = document.createElement('script');
+gsapSript.setAttribute(
+	'src',
+	'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js'
+);
+document.body.appendChild(gsapSript);
+
+//Creando script de ScrollTrigger en body
+var gsapTrigger = document.createElement('script');
+gsapTrigger.setAttribute(
+	'src',
+	'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js'
+);
+document.body.appendChild(gsapTrigger);
