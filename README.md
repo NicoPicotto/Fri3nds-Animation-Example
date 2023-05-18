@@ -14,7 +14,7 @@ Para instalar se debe insertar el siguiente script en el body del proyecto.
 
 Para implementar las animaciones se deben insertar los atributos en el elemento que se desea animar.
 
-[![custom-attributes.jpg](https://i.postimg.cc/q7BZ0hwQ/custom-attributes.jpg)](https://postimg.cc/873bmCqr)
+[![333.jpg](https://i.postimg.cc/FsZjFjQ2/333.jpg)](https://postimg.cc/ZCW9Vvnc)
 
 ### Fade In
 
@@ -68,6 +68,8 @@ También tenemos la posibilidad de generar el efecto en otro elemento dentro de 
 ```
 
 ### Scale Up
+
+[![scale.gif](https://i.postimg.cc/j2xGpHTR/scale.gif)](https://postimg.cc/2btcvB3t)
 
 Se debe agregar al elemento html el siguiente atributo `f3-scale` con el valor que corresponda entre `s`, `m`, `l` para indicar el tamaño al que escala.
 
