@@ -37,7 +37,7 @@ fds-direction = left // Para que la animación venga de la izquierda
 fds-direction = right // Para que la animación venga de la derecha
 ```
 
-### Slide
+### Slide In
 
 [![slide.gif](https://i.postimg.cc/zfxBrBKr/slide.gif)](https://postimg.cc/v16M7G0q)
 
@@ -65,6 +65,35 @@ También tenemos la posibilidad de generar el efecto en otro elemento dentro de 
     <p>Text Button</p>
     <div fds-slideTarget> -> </div>
 </div>
+```
+
+### Scale Up
+
+Se debe agregar al elemento html el siguiente atributo `fds-scale` con el valor que corresponda entre `s`, `m`, `l`.
+
+```bash
+fds-scale = s // Para que el elemento crezca 1.1
+fds-scale = m // Para que el elemento crezca 1.2
+fds-scale = l // Para que el elemento crezca 1.3
+```
+
+### Rotate
+
+Se debe agregar al elemento html el siguiente atributo `fds-rotate` con el valor que corresponda entre `90`, `180`, `360`.
+
+```bash
+fds-rotate = 90 // Para que el elemento rote 90°
+fds-rotate = 180 // Para que el elemento rote 180°
+fds-rotate = 360 // Para que el elemento rote 360°
+```
+
+### Hover Background
+
+Se debe agregar al elemento html el siguiente atributo `fds-hoverBg` con el valor que corresponda entre `dark`, `light`, para que oscurezca o aclare el color actual del fondo.
+
+```bash
+fds-hoverBg = dark // Para que el color de fondo del elemento se oscurezca
+fds-hoverBg = light // Para que el color de fondo del elemento se aclare
 ```
 
 ## Authors

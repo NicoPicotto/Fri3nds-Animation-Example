@@ -16,21 +16,17 @@ document.addEventListener('DOMContentLoaded', function () {
 	gsapTrigger.onload = function () {
 		fadeIn('fds-fade');
 		slideIn('fds-slide', 'fds-slideTarget');
+		scaleUp('fds-scale');
+		rotate('fds-rotate');
+		hoverBg('fds-hoverBg');
 	};
 });
 
-//Animación Fade-In
+//Fade-In Animation
 function fadeIn(selector) {
-	const elements = document.querySelectorAll(`[${selector}]`);
+	const elements = $(`[${selector}]`);
 
-	//Objeto con los valores que toma fds-fade
-	const fadeTransitions = {
-		s: 0.2,
-		m: 0.4,
-		l: 0.8,
-	};
-
-	//Objeto con los valores que toma fds-direction
+	const fadeTransitions = { s: 0.2, m: 0.4, l: 0.8 };
 	const fadeDirections = {
 		top: 'translateY(-30px)',
 		bottom: 'translateY(30px)',
@@ -38,27 +34,27 @@ function fadeIn(selector) {
 		right: 'translateX(30px)',
 	};
 
-	//GSAP trigger y observer
 	gsap.registerPlugin(ScrollTrigger);
 
-	elements.forEach((element) => {
-		const fadeType = element.getAttribute(selector);
-		const fadeDirection = element.getAttribute('fds-direction');
+	elements.each(function () {
+		const fadeType = $(this).attr(selector);
+		const fadeDirection = $(this).attr('fds-direction');
+
 		gsap.fromTo(
-			element,
+			this,
 			{
 				opacity: 0,
-				transform: fadeDirections[fadeDirection],
+				transform: fadeDirections[fadeDirection] || 'none',
 			},
 			{
 				opacity: 1,
 				x: 0,
 				y: 0,
-				duration: fadeTransitions[fadeType],
+				duration: fadeTransitions[fadeType] || 0,
 				delay: 0.2,
 				ease: 'power2.out',
 				scrollTrigger: {
-					trigger: element,
+					trigger: this,
 					start: 'top 80%',
 				},
 			}
@@ -66,18 +62,11 @@ function fadeIn(selector) {
 	});
 }
 
-//Animación Slide-In
+//Slide-In Animation
 function slideIn(containerSelector, elementSelector) {
-	const containers = document.querySelectorAll(`[${containerSelector}]`);
+	const containers = $(`[${containerSelector}]`);
 
-	// Objeto con los valores que toma fds-fade
-	const slideTransitions = {
-		s: 0.2,
-		m: 0.4,
-		l: 0.8,
-	};
-
-	// Objeto con los valores que toma fds-direction
+	const slideTransitions = { s: 0.2, m: 0.4, l: 0.8 };
 	const slideDirections = {
 		top: 'translateY(-10px)',
 		bottom: 'translateY(10px)',
@@ -85,44 +74,129 @@ function slideIn(containerSelector, elementSelector) {
 		right: 'translateX(10px)',
 	};
 
-	containers.forEach((container) => {
-		const slideType = container.getAttribute(containerSelector);
-		const slideDirection = container.getAttribute('fds-direction');
-		const element = container.querySelector(`[${elementSelector}]`);
+	containers.each(function () {
+		const slideType = $(this).attr(containerSelector);
+		const slideDirection = $(this).attr('fds-direction');
+		const element = $(this).find(`[${elementSelector}]`);
 
-		//Si el atributo "fds-target" existe, el efecto ocurre donde está aplicado
-		if (element) {
-			container.addEventListener('mouseenter', () => {
-				gsap.to(element, {
-					duration: slideTransitions[slideType],
-					transform: slideDirections[slideDirection],
-				});
+		const animateIn = () => {
+			gsap.to(element.length ? element : this, {
+				duration: slideTransitions[slideType] || 0,
+				transform: slideDirections[slideDirection] || 'none',
 			});
+		};
 
-			container.addEventListener('mouseleave', () => {
-				gsap.to(element, {
-					duration: slideTransitions[slideType],
-					x: 0,
-					y: 0,
-				});
+		const animateOut = () => {
+			gsap.to(element.length ? element : this, {
+				duration: slideTransitions[slideType] || 0,
+				x: 0,
+				y: 0,
 			});
+		};
+		$(this).on('mouseenter', animateIn);
+		$(this).on('mouseleave', animateOut);
+	});
+}
 
-		//Si el atributo "fds-target" NO existe, el efecto ocurre donde existe el atributo "fds-slide"
-		} else {
-			container.addEventListener('mouseenter', () => {
-				gsap.to(container, {
-					duration: slideTransitions[slideType],
-					transform: slideDirections[slideDirection],
-				});
-			});
+//Scale-Up Animation
+function scaleUp(selector) {
+	const elements = $(`[${selector}]`);
+	const scaleValues = { s: 1.1, m: 1.2, l: 1.3 };
 
-			container.addEventListener('mouseleave', () => {
-				gsap.to(container, {
-					duration: slideTransitions[slideType],
-					x: 0,
-					y: 0,
-				});
+	elements.each(function () {
+		const scaleType = $(this).attr(selector);
+		$(this).on('mouseenter', () => {
+			gsap.to(this, {
+				duration: 0.3,
+				scale: scaleValues[scaleType] || 1,
+				ease: 'power2.out',
 			});
-		}
+		});
+
+		$(this).on('mouseleave', () => {
+			gsap.to(this, {
+				duration: 0.3,
+				scale: 1,
+				ease: 'power2.out',
+			});
+		});
+	});
+}
+
+//Rotate Animation
+function rotate(selector) {
+	const elements = $(`[${selector}]`);
+	const rotateValues = { 90: 90, 180: 180, 360: 360 };
+
+	elements.each(function () {
+		const rotateType = $(this).attr(selector);
+		$(this).on('mouseenter', () => {
+			gsap.to(this, {
+				duration: 0.3,
+				rotation: rotateValues[rotateType] || 0,
+				ease: 'power2.out',
+			});
+		});
+
+		$(this).on('mouseleave', () => {
+			gsap.to(this, {
+				duration: 0.3,
+				rotation: 0,
+				ease: 'power2.out',
+			});
+		});
+	});
+}
+
+//Hover-Bg Animation
+function hoverBg(selector) {
+
+	function adjustColor(color, amount) {
+		return (
+			'#' +
+			color.replace(/^#/, '').replace(/../g, function (color) {
+				const i = parseInt(color, 16);
+				const iMax = Math.min(255, i + amount);
+				const iMin = Math.max(0, i + amount);
+				const newColor = i + amount > 255 ? iMax : iMin;
+				return ('0' + newColor.toString(16)).slice(-2);
+			})
+		);
+	}
+
+	const elements = $(`[${selector}]`);
+
+	elements.each(function () {
+		const effectType = $(this).attr(selector);
+		const originalColor = $(this).css('backgroundColor');
+		const rgb = originalColor.match(/\d+/g);
+		const originalColorHex = `#${(
+			(1 << 24) +
+			(parseInt(rgb[0]) << 16) +
+			(parseInt(rgb[1]) << 8) +
+			parseInt(rgb[2])
+		)
+			.toString(16)
+			.slice(1)}`;
+
+		// Adjust lightness/darkness factor as needed
+		const factor = effectType === 'dark' ? -30 : 30;
+
+		$(this).on('mouseenter', () => {
+			const newColor = adjustColor(originalColorHex, factor);
+			gsap.to(this, {
+				duration: 0.2,
+				backgroundColor: newColor,
+				ease: 'power2.out',
+			});
+		});
+
+		$(this).on('mouseleave', () => {
+			gsap.to(this, {
+				duration: 0.2,
+				backgroundColor: originalColor,
+				ease: 'power2.out',
+			});
+		});
 	});
 }
