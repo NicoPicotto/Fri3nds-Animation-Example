@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		scaleUp('fds-scale');
 		rotate('fds-rotate');
 		hoverBg('fds-hoverBg');
+		shadow('fds-shadow');
 	};
 });
 
@@ -150,7 +151,6 @@ function rotate(selector) {
 
 //Hover-Bg Animation
 function hoverBg(selector) {
-
 	function adjustColor(color, amount) {
 		return (
 			'#' +
@@ -195,6 +195,36 @@ function hoverBg(selector) {
 			gsap.to(this, {
 				duration: 0.2,
 				backgroundColor: originalColor,
+				ease: 'power2.out',
+			});
+		});
+	});
+}
+
+//Shadow Animation
+function shadow(selector) {
+	const elements = $(`[${selector}]`);
+
+	const shadowValues = {
+		s: '2px 2px 3px #A9A9A9',
+		m: '4px 4px 5px #A9A9A9',
+		l: '6px 6px 8px #A9A9A9',
+	};
+
+	elements.each(function () {
+		const shadowType = $(this).attr(selector);
+		$(this).on('mouseenter', () => {
+			gsap.to(this, {
+				duration: 0.2,
+				boxShadow: shadowValues[shadowType] || '0px 0px 0px #000',
+				ease: 'power2.out',
+			});
+		});
+
+		$(this).on('mouseleave', () => {
+			gsap.to(this, {
+				duration: 0.2,
+				boxShadow: '0px 0px 0px #000',
 				ease: 'power2.out',
 			});
 		});

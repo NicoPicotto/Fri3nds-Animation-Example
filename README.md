@@ -69,7 +69,7 @@ También tenemos la posibilidad de generar el efecto en otro elemento dentro de 
 
 ### Scale Up
 
-Se debe agregar al elemento html el siguiente atributo `fds-scale` con el valor que corresponda entre `s`, `m`, `l`.
+Se debe agregar al elemento html el siguiente atributo `fds-scale` con el valor que corresponda entre `s`, `m`, `l` para indicar el tamaño al que escala.
 
 ```bash
 fds-scale = s // Para que el elemento crezca 1.1
@@ -94,6 +94,16 @@ Se debe agregar al elemento html el siguiente atributo `fds-hoverBg` con el valo
 ```bash
 fds-hoverBg = dark // Para que el color de fondo del elemento se oscurezca
 fds-hoverBg = light // Para que el color de fondo del elemento se aclare
+```
+
+### Shadow
+
+Se debe agregar al elemento html el siguiente atributo `fds-shadow` con el valor que corresponda entre `s`, `m`, `l` para indicar el tamaño de la sombra.
+
+```bash
+fds-shadow = s // Para que el tamaño sea de 2px
+fds-shadow = m // Para que el tamaño sea de 4px
+fds-shadow = l // Para que el tamaño sea de 6px
 ```
 
 ## Authors
