@@ -20,90 +20,90 @@ Para implementar las animaciones se deben insertar los atributos en el elemento 
 
 [![fade.gif](https://i.postimg.cc/vmYBk91h/fade.gif)](https://postimg.cc/JsFMBs5H)
 
-Se debe agregar al elemento html el siguiente atributo `fds-fade` con el valor que corresponda entre `s`, `m`, `l`.
+Se debe agregar al elemento html el siguiente atributo `f3-fade` con el valor que corresponda entre `s`, `m`, `l`.
 
 ```bash
-fds-fade = s // Para una animación rápida
-fds-fade = m // Para una animación media
-fds-fade = l // Para una animación lenta
+f3-fade = s // Para una animación rápida
+f3-fade = m // Para una animación media
+f3-fade = l // Para una animación lenta
 ```
 
-Adicionalmente se puede agregar la dirección agregando al elemento html el atributo `fds-direction` con el valor que corresponda entre `top`, `bottom`, `left`, `right`.
+Adicionalmente se puede agregar la dirección agregando al elemento html el atributo `f3-direction` con el valor que corresponda entre `top`, `bottom`, `left`, `right`.
 
 ```bash
-fds-direction = top // Para que la animación venga de arriba
-fds-direction = bottom // Para que la animación venga de abajo
-fds-direction = left // Para que la animación venga de la izquierda
-fds-direction = right // Para que la animación venga de la derecha
+f3-direction = top // Para que la animación venga de arriba
+f3-direction = bottom // Para que la animación venga de abajo
+f3-direction = left // Para que la animación venga de la izquierda
+f3-direction = right // Para que la animación venga de la derecha
 ```
 
 ### Slide In
 
 [![slide.gif](https://i.postimg.cc/zfxBrBKr/slide.gif)](https://postimg.cc/v16M7G0q)
 
-Se debe agregar al elemento html el siguiente atributo `fds-slide` con el valor que corresponda entre `s`, `m`, `l`.
+Se debe agregar al elemento html el siguiente atributo `f3-slide` con el valor que corresponda entre `s`, `m`, `l`.
 
 ```bash
-fds-slide = s // Para una animación rápida
-fds-slide = m // Para una animación media
-fds-slide = l // Para una animación lenta
+f3-slide = s // Para una animación rápida
+f3-slide = m // Para una animación media
+f3-slide = l // Para una animación lenta
 ```
 
-Adicionalmente se puede agregar la dirección agregando al elemento html el atributo `fds-direction` con el valor que corresponda entre `top`, `bottom`, `left`, `right`.
+Adicionalmente se puede agregar la dirección agregando al elemento html el atributo `f3-direction` con el valor que corresponda entre `top`, `bottom`, `left`, `right`.
 
 ```bash
-fds-direction = top // Para que la animación ocurra hacia arriba
-fds-direction = bottom // Para que la animación ocurra hacia abajo
-fds-direction = left // Para que la animación ocurra hacia la izquierda
-fds-direction = right // Para que la animación ocurra hacia la derecha
+f3-direction = top // Para que la animación ocurra hacia arriba
+f3-direction = bottom // Para que la animación ocurra hacia abajo
+f3-direction = left // Para que la animación ocurra hacia la izquierda
+f3-direction = right // Para que la animación ocurra hacia la derecha
 ```
 
-También tenemos la posibilidad de generar el efecto en otro elemento dentro de este, añadiendo el atributo `fds-slideTarget` donde queremos que ocurra.
+También tenemos la posibilidad de generar el efecto en otro elemento dentro de este, añadiendo el atributo `f3-slideTarget` donde queremos que ocurra.
 
 ```bash
-<div class="container" fds-slide="m" fds-direction="top">
+<div class="container" f3-slide="m" f3-direction="top">
     <p>Text Button</p>
-    <div fds-slideTarget> -> </div>
+    <div f3-slideTarget> -> </div>
 </div>
 ```
 
 ### Scale Up
 
-Se debe agregar al elemento html el siguiente atributo `fds-scale` con el valor que corresponda entre `s`, `m`, `l` para indicar el tamaño al que escala.
+Se debe agregar al elemento html el siguiente atributo `f3-scale` con el valor que corresponda entre `s`, `m`, `l` para indicar el tamaño al que escala.
 
 ```bash
-fds-scale = s // Para que el elemento crezca 1.1
-fds-scale = m // Para que el elemento crezca 1.2
-fds-scale = l // Para que el elemento crezca 1.3
+f3-scale = s // Para que el elemento crezca 1.1
+f3-scale = m // Para que el elemento crezca 1.2
+f3-scale = l // Para que el elemento crezca 1.3
 ```
 
 ### Rotate
 
-Se debe agregar al elemento html el siguiente atributo `fds-rotate` con el valor que corresponda entre `90`, `180`, `360`.
+Se debe agregar al elemento html el siguiente atributo `f3-rotate` con el valor que corresponda entre `90`, `180`, `360`.
 
 ```bash
-fds-rotate = 90 // Para que el elemento rote 90°
-fds-rotate = 180 // Para que el elemento rote 180°
-fds-rotate = 360 // Para que el elemento rote 360°
+f3-rotate = 90 // Para que el elemento rote 90°
+f3-rotate = 180 // Para que el elemento rote 180°
+f3-rotate = 360 // Para que el elemento rote 360°
 ```
 
 ### Hover Background
 
-Se debe agregar al elemento html el siguiente atributo `fds-hoverBg` con el valor que corresponda entre `dark`, `light`, para que oscurezca o aclare el color actual del fondo.
+Se debe agregar al elemento html el siguiente atributo `f3-hoverBg` con el valor que corresponda entre `dark`, `light`, para que oscurezca o aclare el color actual del fondo.
 
 ```bash
-fds-hoverBg = dark // Para que el color de fondo del elemento se oscurezca
-fds-hoverBg = light // Para que el color de fondo del elemento se aclare
+f3-hoverBg = dark // Para que el color de fondo del elemento se oscurezca
+f3-hoverBg = light // Para que el color de fondo del elemento se aclare
 ```
 
 ### Shadow
 
-Se debe agregar al elemento html el siguiente atributo `fds-shadow` con el valor que corresponda entre `s`, `m`, `l` para indicar el tamaño de la sombra.
+Se debe agregar al elemento html el siguiente atributo `f3-shadow` con el valor que corresponda entre `s`, `m`, `l` para indicar el tamaño de la sombra.
 
 ```bash
-fds-shadow = s // Para que el tamaño sea de 2px
-fds-shadow = m // Para que el tamaño sea de 4px
-fds-shadow = l // Para que el tamaño sea de 6px
+f3-shadow = s // Para que el tamaño sea de 2px
+f3-shadow = m // Para que el tamaño sea de 4px
+f3-shadow = l // Para que el tamaño sea de 6px
 ```
 
 ## Authors

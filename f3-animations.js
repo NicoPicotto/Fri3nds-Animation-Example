@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	//Llamada a la animación luego de que se carguen los scripts de GSAP
 	gsapTrigger.onload = function () {
-		fadeIn('fds-fade');
-		slideIn('fds-slide', 'fds-slideTarget');
-		scaleUp('fds-scale');
-		rotate('fds-rotate');
-		hoverBg('fds-hoverBg');
-		shadow('fds-shadow');
+		fadeIn('f3-fade');
+		slideIn('f3-slide', 'f3-slideTarget');
+		scaleUp('f3-scale');
+		rotate('f3-rotate');
+		hoverBg('f3-hoverBg');
+		shadow('f3-shadow');
 	};
 });
 
@@ -39,7 +39,7 @@ function fadeIn(selector) {
 
 	elements.each(function () {
 		const fadeType = $(this).attr(selector);
-		const fadeDirection = $(this).attr('fds-direction');
+		const fadeDirection = $(this).attr('f3-direction');
 
 		gsap.fromTo(
 			this,
@@ -77,7 +77,7 @@ function slideIn(containerSelector, elementSelector) {
 
 	containers.each(function () {
 		const slideType = $(this).attr(containerSelector);
-		const slideDirection = $(this).attr('fds-direction');
+		const slideDirection = $(this).attr('f3-direction');
 		const element = $(this).find(`[${elementSelector}]`);
 
 		const animateIn = () => {
