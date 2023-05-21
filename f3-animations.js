@@ -1,28 +1,3 @@
-//Listener + Creación de scripts de GSAP
-document.addEventListener('DOMContentLoaded', function () {
-	// Creando script de GSAP en body
-	var gsapScript = document.createElement('script');
-	gsapScript.src =
-		'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js';
-	document.body.appendChild(gsapScript);
-
-	// Creando script de ScrollTrigger en body
-	var gsapTrigger = document.createElement('script');
-	gsapTrigger.src =
-		'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js';
-	document.body.appendChild(gsapTrigger);
-
-	//Llamada a la animación luego de que se carguen los scripts de GSAP
-	gsapTrigger.onload = function () {
-		fadeIn('f3-fade');
-		slideIn('f3-slide', 'f3-slideTarget');
-		scaleUp('f3-scale');
-		rotate('f3-rotate');
-		hoverBg('f3-hoverBg');
-		shadow('f3-shadow');
-	};
-});
-
 //Fade-In Animation
 function fadeIn(selector) {
 	const elements = $(`[${selector}]`);
